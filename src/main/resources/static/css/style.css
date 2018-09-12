@@ -1,0 +1,32 @@
+body{
+    padding: 10px;
+}
+
+.purchaseTable {
+    border-collapse: collapse;
+}
+
+.purchaseTable, .purchaseTable th, .purchaseTable td {
+    border: 1px solid black;
+}
+
+.purchaseTable th, .purchaseTable td {
+    padding: 10px;
+    text-align: left;
+}
+
+.purchaseTable th{
+    background-color: #e8f1fa;
+}
+
+.purchaseTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.purchaseSum{
+    padding: 5px;
+}
+
+.searchNumForm{
+    padding: 5px;
+}

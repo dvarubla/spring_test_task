@@ -3,11 +3,20 @@
 <head>
     <title>Главная страница</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{'/css/reset.css'}"/>
     <link rel="stylesheet" th:href="@{'/css/style.css'}"/>
 </head>
 <body>
-<div th:if="${purchases != null && purchases.size() != 0}">
-    <table>
+<div>
+    <form action="/" method="get" class="searchNumForm">
+        <label for="searchTextId">Введите номер заказа: </label>
+        <input type="text" id="searchTextId" name="num"/><input type="submit" value="Искать">
+    </form>
+</div>
+<div th:if="${purchases != null}">
+    <div th:if="${purchases.size() != 0}">
+    <table class="purchaseTable">
+        <tr><th>Наименование</th><th>Количество</th><th>Цена</th><th>Сумма</th></tr>
         <tr th:each="purchase : ${purchases}">
             <td th:text="${purchase.name}"></td>
             <td th:text="${purchase.count}"></td>
@@ -15,7 +24,11 @@
             <td th:text="${#numbers.formatDecimal(purchase.total, 0, 2, 'COMMA')}"></td>
         </tr>
     </table>
-    <div>Итого: [[${#numbers.formatDecimal(total, 0, 2, 'COMMA')}]]</div>
+    <div class="purchaseSum">Итого: [[${#numbers.formatDecimal(total, 0, 2, 'COMMA')}]]</div>
+    </div>
+    <div th:unless="${purchases.size() != 0}">
+        Заказа с таким номером нет.
+    </div>
 </div>
 </body>
 </html>
