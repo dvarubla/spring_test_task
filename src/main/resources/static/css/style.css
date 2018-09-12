@@ -30,3 +30,8 @@ body{
 .searchNumForm{
     padding: 5px;
 }
+
+.searchNumForm .error{
+    margin-left: 5px;
+    color: #da2015;
+}

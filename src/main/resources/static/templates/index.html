@@ -11,6 +11,7 @@
     <form action="/" method="get" class="searchNumForm">
         <label for="searchTextId">Введите номер заказа: </label>
         <input type="text" id="searchTextId" name="num"/><input type="submit" value="Искать">
+        <span class="error" th:errors="*{num}"></span>
     </form>
 </div>
 <div th:if="${purchases != null}">
