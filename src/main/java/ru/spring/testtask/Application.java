@@ -8,6 +8,7 @@ import org.apache.commons.cli.*;
 
 import java.io.File;
 
+/*Главный класс приложения*/
 public class Application {
     /*Похоже, другого способа отключить JSP нет*/
     private static class noJSPListener implements LifecycleListener {
@@ -50,9 +51,11 @@ public class Application {
         String webAppDirLocation = ".";
         NoJSPTomcat tomcat = new NoJSPTomcat();
         tomcat.setPort(((Number) cmd.getParsedOptionValue("port")).intValue());
+        // Без этого не будет работать
         tomcat.getConnector();
 
         Context ctx = tomcat.addWebapp("", new File(webAppDirLocation).getAbsolutePath());
+        /*Передача аргументов командной строки*/
         ctx.addParameter("db.name", dbArgs[0]);
         ctx.addParameter("db.username", dbArgs[1]);
         ctx.addParameter("db.password", dbArgs[2]);

@@ -13,6 +13,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 import java.util.HashMap;
 
+/*Главный класс инициализации*/
 @SuppressWarnings("SpringFacetCodeInspection")
 @Configuration
 @EnableWebMvc
@@ -21,6 +22,7 @@ public class AppInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(ServletContext servletContext) {
+        /*получение аргументов командной строки*/
         HashMap<String, Object> dbProps = new HashMap<>();
         String[] dbParams = new String[]{
                 "db.name", "db.username", "db.password", "db.port"

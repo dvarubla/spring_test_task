@@ -26,6 +26,7 @@ public class MainController {
         _uIntValidator = validator;
     }
 
+    /*Подключение валидатора*/
     @InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.setValidator(_uIntValidator);
@@ -36,6 +37,7 @@ public class MainController {
         if(numStr.length() != 0) {
             if(!bindingResult.hasErrors()) {
                 int num = Integer.valueOf(numStr);
+                /*Массив нужен для того, чтобы можно было изменять из лямбды*/
                 final BigDecimal[] totalPurchase = {new BigDecimal(0)};
                 List<PurchaseInfo> purchaseList =
                         _purchaseRepository.findByNum(num)

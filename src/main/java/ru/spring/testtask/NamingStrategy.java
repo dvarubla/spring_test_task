@@ -8,6 +8,7 @@ import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 import java.util.LinkedList;
 import java.util.List;
 
+/*Класс для перевода snake case в camel case в названиях столбцов, последовательностей и таблиц*/
 public class NamingStrategy implements PhysicalNamingStrategy {
     @Override
     public Identifier toPhysicalCatalogName(Identifier name, JdbcEnvironment jdbcEnvironment) {

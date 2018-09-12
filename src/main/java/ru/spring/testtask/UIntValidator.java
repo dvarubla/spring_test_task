@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+/*Валидация номера заказа*/
 @Component
 class UIntValidator implements Validator {
     @Override

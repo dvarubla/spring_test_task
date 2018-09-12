@@ -2,6 +2,7 @@ package ru.spring.testtask;
 
 import java.math.BigDecimal;
 
+/*Класс, который передаётся в представление*/
 public class PurchaseInfo {
     private String _name;
     private int _count;

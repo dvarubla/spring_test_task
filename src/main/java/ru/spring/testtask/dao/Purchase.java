@@ -3,7 +3,7 @@ package ru.spring.testtask.dao;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
-
+/*Класс для заказа*/
 @Entity
 @Table(name = "purchase")
 public class Purchase {
@@ -20,6 +20,7 @@ public class Purchase {
 
     private int count;
 
+    /*Связь с товарами*/
     @ManyToOne
     @JoinColumn(name = "productId")
     private Product product;

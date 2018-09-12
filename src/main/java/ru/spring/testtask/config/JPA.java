@@ -16,6 +16,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+/*Класс для настройки JPA*/
 @SuppressWarnings("SpringFacetCodeInspection")
 @Configuration
 @EnableTransactionManagement

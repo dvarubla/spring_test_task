@@ -4,7 +4,7 @@ import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-
+/*Класс для товаров*/
 @Entity
 @Table(name = "product")
 public class Product {
