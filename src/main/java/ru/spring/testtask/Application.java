@@ -1,12 +1,26 @@
 package ru.spring.testtask;
 
 import org.apache.catalina.Context;
+import org.apache.catalina.LifecycleEvent;
+import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.commons.cli.*;
 
 import java.io.File;
 
 public class Application {
+    /*Похоже, другого способа отключить JSP нет*/
+    private static class noJSPListener implements LifecycleListener {
+        @Override
+        public void lifecycleEvent(LifecycleEvent event) {
+        }
+    }
+    private static class NoJSPTomcat extends Tomcat{
+        @Override
+        public LifecycleListener getDefaultWebXmlListener() {
+            return new noJSPListener();
+        }
+    }
     public static void main(String[] args) throws Exception {
         Options options = new Options();
 
@@ -34,7 +48,7 @@ public class Application {
         String[] dbArgs = cmd.getOptionValues("db");
 
         String webAppDirLocation = ".";
-        Tomcat tomcat = new Tomcat();
+        NoJSPTomcat tomcat = new NoJSPTomcat();
         tomcat.setPort(((Number) cmd.getParsedOptionValue("port")).intValue());
         tomcat.getConnector();
 
