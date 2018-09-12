@@ -15,6 +15,7 @@
 </div>
 <div th:if="${purchases != null}">
     <div th:if="${purchases.size() != 0}">
+    <div class="purchaseNum">Номер заказа: [[${purchaseNum}]]</div>
     <table class="purchaseTable">
         <tr><th>Наименование</th><th>Количество</th><th>Цена</th><th>Сумма</th></tr>
         <tr th:each="purchase : ${purchases}">
@@ -27,7 +28,7 @@
     <div class="purchaseSum">Итого: [[${#numbers.formatDecimal(total, 0, 2, 'COMMA')}]]</div>
     </div>
     <div th:unless="${purchases.size() != 0}">
-        Заказа с таким номером нет.
+        Заказа с номером [[${purchaseNum}]] нет в базе.
     </div>
 </div>
 </body>

@@ -35,6 +35,7 @@ public class MainController {
                                 );
                             }
                     ).collect(Collectors.toList());
+            model.addAttribute("purchaseNum", num.get());
             model.addAttribute("total", totalPurchase);
             model.addAttribute("purchases", purchaseList);
         }

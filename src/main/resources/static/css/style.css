@@ -23,7 +23,7 @@ body{
     background-color: #f2f2f2;
 }
 
-.purchaseSum{
+.purchaseSum, .purchaseNum{
     padding: 5px;
 }
 
