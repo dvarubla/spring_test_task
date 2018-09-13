@@ -26,6 +26,7 @@ public class Thymeleaf implements WebMvcConfigurer {
         templateResolver.setPrefix("classpath:/static/templates/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML");
+        templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
 
