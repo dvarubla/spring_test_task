@@ -25,7 +25,7 @@ public class AppInitializer implements WebApplicationInitializer {
         /*получение аргументов командной строки*/
         HashMap<String, Object> dbProps = new HashMap<>();
         String[] dbParams = new String[]{
-                "db.name", "db.username", "db.password", "db.port"
+                "db.host", "db.port", "db.name", "db.username", "db.password"
         };
         for(String paramName: dbParams){
             dbProps.put(paramName, servletContext.getInitParameter(paramName));

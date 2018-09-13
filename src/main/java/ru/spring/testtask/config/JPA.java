@@ -28,6 +28,8 @@ public class JPA{
     private String dbUsername;
     @Value("${db.password}")
     private String dbPassword;
+    @Value("${db.host}")
+    private String dbHost;
     @Value("${db.port}")
     private String dbPort;
 
@@ -49,7 +51,7 @@ public class JPA{
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:" + dbPort + "/" + dbName);
+        dataSource.setUrl("jdbc:postgresql://" + dbHost + ":" + dbPort + "/" + dbName);
         dataSource.setUsername(dbUsername);
         dataSource.setPassword(dbPassword);
         return dataSource;

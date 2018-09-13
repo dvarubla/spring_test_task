@@ -30,8 +30,8 @@ public class Application {
         portOption.setType(Number.class);
         options.addOption(portOption);
 
-        Option dbOption = new Option(null, "db", true, "database, username, password, port");
-        dbOption.setArgs(4);
+        Option dbOption = new Option(null, "db", true, "host, port, database, username, password");
+        dbOption.setArgs(5);
         options.addOption(dbOption);
 
         CommandLineParser parser = new DefaultParser();
@@ -56,10 +56,11 @@ public class Application {
 
         Context ctx = tomcat.addWebapp("", new File(webAppDirLocation).getAbsolutePath());
         /*Передача аргументов командной строки*/
-        ctx.addParameter("db.name", dbArgs[0]);
-        ctx.addParameter("db.username", dbArgs[1]);
-        ctx.addParameter("db.password", dbArgs[2]);
-        ctx.addParameter("db.port", dbArgs[3]);
+        ctx.addParameter("db.host", dbArgs[0]);
+        ctx.addParameter("db.port", dbArgs[1]);
+        ctx.addParameter("db.name", dbArgs[2]);
+        ctx.addParameter("db.username", dbArgs[3]);
+        ctx.addParameter("db.password", dbArgs[4]);
         tomcat.start();
         tomcat.getServer().await();
     }
